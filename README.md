@@ -2,10 +2,9 @@
 This project simulates an Electric Vehicle (EV) billing system using Kafka, Spark, that are containerized and run on Azure services.
 
 ## Components
-- Kafka Producer: Generates simulated EV charging session data and sends it to Azure Event Hubs. This is containerized and run on multi-node multi-pod Kubernetes cluster to simulate realtime multiple charging stations scenario.Enabled dynamic scaling of data ingestion processes through serverless functions.
-- Azure Container registries: Stores the containerized image of the above program
-- Azure Kubernetes services: Orchestrates the execution of the above program
-- Azure Event Hubs: Acts as the Kafka broker and receives data sent by the above program.
+- Azure Container registries: Stores the containerized image of the Kafka Producer program
+- Azure Kubernetes services: Orchestrates the execution of the Kafka Producer program
+- Azure Event Hubs: Acts as the Kafka broker and receives data sent by the Kafka Producer program.
 - Spark Structured Streaming: Consumes data from Event Hubs, processes it, and writes to Azure SQL Database.
 - Azure Database for PostgreSQL: Stores processed data for querying and analysis.
 - Azure Functions: To control scaling of Kafka producer pods on Azure Kubernetes Service (AKS).
