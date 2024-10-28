@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-producer
+  template:
+    metadata:
+      labels:
+        app: kafka-producer
+    spec:
+      containers:
+      - name: kafka-producer
+        image: XXX.azurecr.io/ev-charging-producer:latest
+        env:
+        - name: EVENT_HUB_NAMESPACE
+          value: 'XXX.servicebus.windows.net:9093'
+        - name: EVENT_HUB_NAME
+          value: 'XXX'
+        - name: CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: eventhubs-connection-string
+              key: CONNECTION_STRING
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+      imagePullSecrets:
+      - name: acr-auth
