@@ -48,7 +48,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         apps_v1 = client.AppsV1Api()
 
         # Scale the deployment
-        namespace = 'default'  # Change if using a different namespace
+        namespace = 'default'
         deployment_name = 'kafka-producer'
         body = {
             'spec': {
