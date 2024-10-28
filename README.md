@@ -43,7 +43,7 @@ This project simulates an Electric Vehicle (EV) billing system using Kafka, Spar
            |                                 |                          |
            |           +---------------------+                          |
            |           |                                                v
-           |    +------+-------+                             +---------+----------+
+           |    +------+--------+                             +---------+----------+
            |    |               |                             |                    |
            +----+     Azure     |                             | Azure Database for |
                 | Data Factory  |                             |    PostgreSQL      |
